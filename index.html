@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raunak Das</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: url('https://static3.depositphotos.com/1000820/175/i/450/depositphotos_1752965-stock-photo-dark-wood-texture.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-theme {
+            background: url('https://img.freepik.com/free-vector/modern-desktop-background-geometric-blue-design-vector_53876-135923.jpg?semt=ais_hybrid&w=740') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        body.dark-theme .header {
+            color: #fff;
+        }
+
+        .header .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: background 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: #1c78d6;
+        }
+
+        /* Shortcuts */
+        .shortcuts {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        body.dark-theme .shortcuts {
+            background: rgba(40, 40, 40, 0.9);
+        }
+
+        .shortcut-item {
+            padding: 10px 20px;
+            background: #1e90ff;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .shortcut-item:hover {
+            background: #1c78d6;
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #333;
+        }
+
+        body.dark-theme .section {
+            background: rgba(40, 40, 40, 0.9);
+            color: #fff;
+        }
+
+        .section h2 {
+            color: #1e90ff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #1e90ff;
+            padding-bottom: 5px;
+        }
+
+        .skills-grid, .projects-grid, .achievements-list, .certifications-list, .social-media-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item, .project-item, .achievement-item, .certification-item, .social-media-item {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .skill-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .project-item {
+            border: 1px solid #1e90ff;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .project-item a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #1e90ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        .project-item a:hover {
+            background: #1c78d6;
+        }
+
+        .achievement-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .social-media-item a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #1e90ff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .social-media-item a:hover {
+            color: #1c78d6;
+        }
+
+        .social-media-item img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #1e90ff;
+            border-radius: 5px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+
+        body.dark-theme .contact-form input, body.dark-theme .contact-form textarea {
+            background: rgba(60, 60, 60, 0.8);
+            color: #fff;
+        }
+
+        .contact-form button {
+            padding: 10px;
+            background: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #1c78d6;
+        }
+
+        /* Chat Bubble */
+        .chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e90ff;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-bubble:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Chat Overlay */
+        .chat-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .chat-window {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark-theme .chat-window {
+            background: #2a2a2a;
+        }
+
+        .chat-header {
+            padding: 15px;
+            background: #1e90ff;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #fff;
+        }
+
+        .chat-header h3 {
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-close {
+            font-size: 1.5em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f5f5f5;
+        }
+
+        body.dark-theme .chat-body {
+            background: #333;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .message.sent {
+            justify-content: flex-end;
+        }
+
+        .message.received {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 1em;
+        }
+
+        .message.sent .message-content {
+            background: #1e90ff;
+            color: white;
+        }
+
+        .message.received .message-content {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        body.dark-theme .message.received .message-content {
+            background: #555;
+            color: #fff;
+        }
+
+        .typing {
+            display: flex;
+            align-items: center;
+            color: #333;
+        }
+
+        body.dark-theme .typing {
+            color: #fff;
+        }
+
+        .typing span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #1e90ff;
+            border-radius: 50%;
+            margin-right: 4px;
+            animation: typing 1s infinite;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .chat-footer {
+            padding: 15px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #ddd;
+        }
+
+        body.dark-theme .chat-footer {
+            background: #2a2a2a;
+            border-top: 1px solid #444;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background: #f0f0f0;
+            margin-right: 10px;
+            font-size: 1em;
+            outline: none;
+            color: #333;
+        }
+
+        body.dark-theme .chat-footer input {
+            background: #444;
+            color: #fff;
+        }
+
+        .chat-footer button {
+            padding: 10px 20px;
+            background: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .chat-footer button:hover {
+            background: #1c78d6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .header p { font-size: 1em; }
+            .header .profile-pic { width: 120px; height: 120px; }
+            .section { padding: 20px; }
+            .chat-bubble { bottom: 20px; right: 20px; padding: 12px 20px; }
+            .skills-grid, .projects-grid, .achievements-list, .certifications-list, .social-media-list {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            .shortcuts { flex-direction: column; align-items: center; gap: 10px; }
+            .chat-window { max-width: 90%; height: 80%; }
+            .theme-toggle { top: 10px; right: 10px; width: 35px; height: 35px; font-size: 18px; }
+        }
+
+        @media (max-width: 480px) {
+            .header { padding: 30px 15px; }
+            .header .profile-pic { width: 100px; height: 100px; }
+            .section { margin: 15px 0; }
+            .contact-form { max-width: 100%; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="themeIcon">☀️</span>
+    </button>
+
+    <div class="header">
+        <div class="container">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQESiAJCkbt4Rw/profile-displayphoto-shrink_200_200/B4DZUw9.k7HAAY-/0/1740283309207?e=2147483647&v=beta&t=HVSIff7x_rMIU0dQi2GZxRMB1UdE3dSqJ0qnI7UmWho" alt="Profile Picture" class="profile-pic">
+            <h1>Raunak Das</h1>
+            <p>Electronics & Communication Engineering Student | Tech Enthusiast | WEB Developer | UI/UX Learner</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="shortcuts">
+            <a href="#about" class="shortcut-item">About</a>
+            <a href="#skills" class="shortcut-item">Skills</a>
+            <a href="#projects" class="shortcut-item">Projects</a>
+            <a href="#achievements" class="shortcut-item">Achievements</a>
+            <a href="#certifications" class="shortcut-item">Certifications</a>
+            <a href="#social" class="shortcut-item">Social</a>
+            <a href="#contact" class="shortcut-item">Contact</a>
+        </div>
+
+        <div class="section about" id="about">
+            <h2>About Me</h2>
+            <p>I'm an ambitious Electronics and Communication Engineering student at Meghnad Saha Institute of Technology. I love coding, problem-solving, physics, and math. Based in Kolkata, India, I'm driven to succeed as an engineer.</p>
+        </div>
+
+        <div class="section skills" id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5">HTML5</div>
+                <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3">CSS3</div>
+                <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">JavaScript</div>
+                <div class="skill-item"><img src="python.png" alt="Python">Python</div>
+                <div class="skill-item"><img src="images-removebg-preview.png" alt="UI/UX">UI/UX Design</div>
+                <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/7656/7656409.png" alt="Problem Solving">Problem Solving</div>
+                <div class="skill-item"><img src="git.png" alt="Git">Git</div>
+                <div class="skill-item"><img src="Github-desktop-logo-symbol.svg.png" alt="Github">Github</div>
+                <div class="skill-item"><img src="CANVA.png" alt="Canva">Canva</div>
+                <div class="skill-item"><img src="FIGMA.png" alt="Figma">Figma</div>
+            </div>
+        </div>
+
+        <div class="section projects" id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <img src="Screenshot (13).png" alt="Project 1">
+                    <h3>GeoQuest</h3>
+                    <p>An innovative Way to Test-Learn-Enhance Your Geographical Knowledge </p>
+                    <a href="https://raunakdas10.github.io/GeoQuest/" target="_blank">View Project</a>
+                </div>
+                <div class="project-item">
+                    <img src="Screenshot (14).png" alt="Project 2">
+                    <h3>Greenlify</h3>
+                    <p>A Smart Waste Management System</p>
+                    <a href="https://ds-navy.vercel.app/" target="_blank">View Project</a>
+                </div>
+                <div class="project-item">
+                    <img src="Screenshot (15).png" alt="Project 3">
+                    <h3>All in One Temperature Converter</h3>
+                    <p>It's an all in one Temperature to interconvert between</p> 
+                    <p>Celsius-Fahrenheit-Kelvin Scale</p>
+                    <a href="https://raunakdas10.github.io/Temperature-Converter/" target="_blank">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section achievements" id="achievements">
+            <h2>Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement-item">
+                    <img src="Screenshot_20250403_023630.jpg" alt="Smart India Hackathon">
+                    <p>Smart India Hackathon 2024 - Internally Selected</p>
+                </div>
+                <div class="achievement-item">
+                    <img src="IMG_20250216_232222.jpg" alt="DoubleSlash_JU">
+                    <p>DoubleSlash_JU 3.0 - Finalist</p>
+                </div>
+                <div class="achievement-item">
+                    <img src="IMG_20241225_224625.jpg" alt="Campus Ambassador">
+                    <p>A fellow Campus Ambassador of Kshitij, IIT KGP</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section certifications" id="certifications">
+            <h2>Certifications</h2>
+            <div class="certifications-list">
+                <div class="certification-item">Certified C & C++ Programmer</div>
+                <div class="certification-item">WEBSITE DEVELOPER</div>
+                <div class="certification-item">Consumer Energy Meter Technician (Level 3) [WBSCT&VE&SD]</div>
+            </div>
+        </div>
+
+        <div class="section social" id="social">
+            <h2>Social Media</h2>
+            <div class="social-media-list">
+                <div class="social-media-item">
+                    <a href="https://www.instagram.com/_just.raunak10_/" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"> Instagram
+                    </a>
+                </div>
+                <div class="social-media-item">
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"> Facebook
+                    </a>
+                </div>
+                <div class="social-media-item">
+                    <a href="https://x.com/not_raunak10" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"> X (Twitter)
+                    </a>
+                </div>
+                <div class="social-media-item">
+                    <a href="https://in.linkedin.com/in/raunak-das-681428330" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section contact" id="contact">
+            <h2>Contact Me</h2>
+            <form class="contact-form" onsubmit="sendMessage(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="chat-bubble" onclick="openChat()">
+        Ask Anything About Me
+    </div>
+
+    <!-- Chat Overlay -->
+    <div class="chat-overlay" id="chatOverlay">
+        <div class="chat-window">
+            <div class="chat-header">
+                <h3><img src="https://media.licdn.com/dms/image/v2/D4D03AQESiAJCkbt4Rw/profile-displayphoto-shrink_200_200/B4DZUw9.k7HAAY-/0/1740283309207?e=2147483647&v=beta&t=HVSIff7x_rMIU0dQi2GZxRMB1UdE3dSqJ0qnI7UmWho" alt="Profile Picture" class="profile-pic"> Raunak Das</h3>
+                <button class="chat-close" onclick="closeChat()">×</button>
+            </div>
+            <div class="chat-body" id="chatBody">
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type a message...">
+                <button onclick="sendChatMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Theme Toggle with Moon/Sun
+        const themeIcon = document.getElementById('themeIcon');
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeIcon.textContent = '☀️';
+        } else {
+            themeIcon.textContent = '🌙';
+        }
+
+        // Variables
+        const myFullName = "Raunak Das";
+        const myDescription = "As an ambitious and detail-oriented individual, I'm pursuing Electronics and Communication Engineering at Meghnad Saha Institute of Technology. My passions include coding, problem-solving, physics, and mathematics, driving me to excel in my field. A proud alumnus of Jodhpur Park Boys School, I've achieved notable results in JEE Mains, WBJEE, and KIITEE, earning a prestigious huge amount scholarship on my college fees from the Government of West Bengal. Additionally, I've received numerous other scholarships, recognizing my academic excellence and reinforcing my commitment to academic rigor. Notably, I successfully led my team 'INNOVATE X' in the Smart India Hackathon (2024) [Internally Selected] and 'The Code Crew' at DoubleSlash_JU 3.0 [Finalist] during my first year, showcasing my leadership skills and ability to drive innovative solutions. Beyond academics, I enjoy football matches, gaming, photography (casual mobile photographer), and drawing (at some extent). I'm an avid bookworm, devouring detective, horror, and thriller genres, and equally enthusiastic about movies. Based in Kolkata, India, I'm driven to succeed as an engineer, combining technical expertise with leadership skills and creative expression.My Linkedin id is Raunak Das. I'm excited to connect with like-minded professionals and explore opportunities.";
+
+        function openChat() {
+            const chatOverlay = document.getElementById('chatOverlay');
+            const chatBody = document.getElementById('chatBody');
+            chatOverlay.style.display = 'flex';
+            chatBody.innerHTML = '';
+
+            const initialMessage = document.createElement('div');
+            initialMessage.className = 'message received';
+            initialMessage.innerHTML = `<div class="message-content">Hi,${myFullName} this side! What do you want to know about me?</div>`;
+            chatBody.appendChild(initialMessage);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function closeChat() {
+            document.getElementById('chatOverlay').style.display = 'none';
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chatBody = document.getElementById('chatBody');
+
+            // Add user's message
+            const sentMessage = document.createElement('div');
+            sentMessage.className = 'message sent';
+            sentMessage.innerHTML = `<div class="message-content">${message}</div>`;
+            chatBody.appendChild(sentMessage);
+
+            // Add typing animation
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'message received typing';
+            typingIndicator.innerHTML = `<div class="message-content"><span></span><span></span><span></span></div>`;
+            chatBody.appendChild(typingIndicator);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            input.value = '';
+
+            // Gemini API call
+            const apiKey = "AIzaSyCL197y1T6HFLzWCxMx8caaZoI946ph6_U"; // Replace with your actual API key
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            const prompt = `User_message:${message}. Reply naturally to the usermessage and if required then answer based on: ${myDescription} or just simply give friendly reply. And reply in a way that Raunak Das is himself talking. Reply in short sentences`;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: prompt }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                const aiResponse = data.candidates[0].content.parts[0].text;
+
+                // Remove typing animation
+                chatBody.removeChild(typingIndicator);
+
+                // Add AI response
+                const aiMessage = document.createElement('div');
+                aiMessage.className = 'message received';
+                aiMessage.innerHTML = `<div class="message-content">${aiResponse}</div>`;
+                chatBody.appendChild(aiMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            } catch (error) {
+                console.error('Error fetching Gemini API:', error);
+                // Remove typing animation
+                chatBody.removeChild(typingIndicator);
+                // Fallback response
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'message received';
+                errorMessage.innerHTML = `<div class="message-content">Oops, something went wrong! Let's try that again.</div>`;
+                chatBody.appendChild(errorMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        }
+
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        });
+
+        function sendMessage(event) {
+            event.preventDefault();
+            alert("Message sent successfully! (This is a demo)");
+            event.target.reset();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
