@@ -33,6 +33,7 @@
             padding: 20px;
         }
 
+        /* Header */
         .header {
             text-align: center;
             padding: 40px 20px;
@@ -64,6 +65,7 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
+        /* Theme Toggle */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -86,6 +88,7 @@
             background: #1c78d6;
         }
 
+        /* Shortcuts */
         .shortcuts {
             display: flex;
             justify-content: center;
@@ -113,6 +116,7 @@
             background: #1c78d6;
         }
 
+        /* Sections */
         .section {
             background: rgba(255, 255, 255, 0.9);
             margin: 20px 0;
@@ -251,6 +255,7 @@
             background: #1c78d6;
         }
 
+        /* Chat Bubble */
         .chat-bubble {
             position: fixed;
             bottom: 30px;
@@ -274,6 +279,8 @@
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
+
+        /* Chat Overlay */
         .chat-overlay {
             display: none;
             position: fixed;
@@ -458,6 +465,7 @@
             background: #1c78d6;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header h1 { font-size: 2em; }
             .header p { font-size: 1em; }
@@ -529,19 +537,25 @@
             <h2>Projects</h2>
             <div class="projects-grid">
                 <div class="project-item">
-                    <img src="Screenshot (13).png" alt="Project 1">
+                    <img src="Screenshot 2025-04-27 112902.png" alt="Project 1">
+                    <h3>Bidhusekhar</h3>
+                    <p>A versetile artificial intelligence chatbot skilled in providing information and answering questions </p>
+                    <a href="https://bidhusekhar-aibot-raunak-das.vercel.app/" target="_blank">View Project</a>
+                </div>
+                <div class="project-item">
+                    <img src="Screenshot (13).png" alt="Project 2">
                     <h3>GeoQuest</h3>
                     <p>An innovative Way to Test-Learn-Enhance Your Geographical Knowledge </p>
                     <a href="https://raunakdas10.github.io/GeoQuest/" target="_blank">View Project</a>
                 </div>
                 <div class="project-item">
-                    <img src="Screenshot (14).png" alt="Project 2">
+                    <img src="Screenshot (14).png" alt="Project 3">
                     <h3>Greenlify</h3>
                     <p>A Smart Waste Management System</p>
                     <a href="https://ds-navy.vercel.app/" target="_blank">View Project</a>
                 </div>
                 <div class="project-item">
-                    <img src="Screenshot (15).png" alt="Project 3">
+                    <img src="Screenshot (15).png" alt="Project 4">
                     <h3>All in One Temperature Converter</h3>
                     <p>It's an all in one Temperature to interconvert between</p> 
                     <p>Celsius-Fahrenheit-Kelvin Scale</p>
@@ -618,6 +632,7 @@
         Ask Anything About Me
     </div>
 
+    <!-- Chat Overlay -->
     <div class="chat-overlay" id="chatOverlay">
         <div class="chat-window">
             <div class="chat-header">
@@ -654,6 +669,7 @@
             themeIcon.textContent = '🌙';
         }
 
+        // Variables
         const myFullName = "Raunak Das";
         const myDescription = "As an ambitious and detail-oriented individual, I'm pursuing Electronics and Communication Engineering at Meghnad Saha Institute of Technology. My passions include coding, problem-solving, physics, and mathematics, driving me to excel in my field. A proud alumnus of Jodhpur Park Boys School, I've achieved notable results in JEE Mains, WBJEE, and KIITEE, earning a prestigious huge amount scholarship on my college fees from the Government of West Bengal. Additionally, I've received numerous other scholarships, recognizing my academic excellence and reinforcing my commitment to academic rigor. Notably, I successfully led my team 'INNOVATE X' in the Smart India Hackathon (2024) [Internally Selected] and 'The Code Crew' at DoubleSlash_JU 3.0 [Finalist] during my first year, showcasing my leadership skills and ability to drive innovative solutions. Beyond academics, I enjoy football matches, gaming, photography (casual mobile photographer), and drawing (at some extent). I'm an avid bookworm, devouring detective, horror, and thriller genres, and equally enthusiastic about movies. Based in Kolkata, India, I'm driven to succeed as an engineer, combining technical expertise with leadership skills and creative expression.My Linkedin id is Raunak Das. I'm excited to connect with like-minded professionals and explore opportunities.";
 
